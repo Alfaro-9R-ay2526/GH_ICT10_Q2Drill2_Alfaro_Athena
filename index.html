@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Club Member Lookup</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display for headings & Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for cozy bookish icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PyScript Core CSS and JS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body
+    class="h-full bg-[#FAF6F0] text-[#4A3B32] flex items-center justify-center p-4 selection:bg-[#F4C2C2] selection:text-[#3B281A]">
+
+    <main
+        class="w-full max-w-md bg-[#FFFDF9] border border-[#EFE5D8] shadow-xl rounded-3xl p-8 sm:p-10 relative overflow-hidden transition-all duration-300">
+
+        <!-- Decorative subtle background glow in soft pink -->
+        <div
+            class="absolute -top-24 -right-24 w-48 h-48 bg-[#FAD2E1] rounded-full blur-3xl opacity-60 pointer-events-none">
+        </div>
+        <div
+            class="absolute -bottom-24 -left-24 w-48 h-48 bg-[#EED7C5] rounded-full blur-3xl opacity-60 pointer-events-none">
+        </div>
+
+        <!-- Header Section with Bookish Icon -->
+        <div class="text-center mb-8 relative z-10">
+            <div
+                class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#FAD2E1] text-[#7A433A] mb-4 shadow-sm">
+                <i class="fa-solid fa-book-open-reader text-2xl"></i>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-[#3B281A] mb-2">Chapter & Chat</h1>
+            <p class="text-sm sm:text-base text-[#7A685D] italic">Check if you're on the member roster for our  book
+                club!</p>
+        </div>
+
+        <form class="space-y-5 relative z-10" onsubmit="return false;">
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-[#7A685D] mb-1.5 ml-1"
+                    for="fname">First Name</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#A89689]">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </span>
+                    <input type="text" id="fname" placeholder="e.g. Elizabeth"
+                        class="w-full pl-11 pr-4 py-3 bg-[#FAF6F0] border border-[#E5D5C5] rounded-xl text-[#3B281A] placeholder-[#B5A496] focus:outline-none focus:ring-2 focus:ring-[#D48C9E] focus:bg-white transition duration-200 shadow-sm text-sm sm:text-base">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-[#7A685D] mb-1.5 ml-1"
+                    for="lname">Last Name</label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-[#A89689]">
+                        <i class="fa-solid fa-user-tag text-sm"></i>
+                    </span>
+                    <input type="text" id="lname" placeholder="e.g. Bennet"
+                        class="w-full pl-11 pr-4 py-3 bg-[#FAF6F0] border border-[#E5D5C5] rounded-xl text-[#3B281A] placeholder-[#B5A496] focus:outline-none focus:ring-2 focus:ring-[#D48C9E] focus:bg-white transition duration-200 shadow-sm text-sm sm:text-base">
+                </div>
+            </div>
+
+            <div class="pt-2">
+                <input type="button" py-click="get_fullname" value="Search Roster"
+                    class="w-full py-3.5 px-6 bg-gradient-to-r from-[#8C5E51] to-[#6A443B] hover:from-[#7A4F43] hover:to-[#57352D] text-white font-medium rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer text-center text-sm sm:text-base active:scale-[0.98]">
+            </div>
+        </form>
+
+        <!-- Result Box matching PyScript requirement id="div1" -->
+        <div id="div1" class="mt-6 empty:mt-0 relative z-10 transition-all duration-300"></div>
+
+        <!-- Footer Note -->
+        <div class="mt-8 text-center text-xs text-[#A89689] relative z-10 border-t border-[#F3EBE1] pt-4">
+            <p>Grab a warm cup of tea & your current read ☕️</p>
+        </div>
+    </main>
+
+    <!-- Required PyScript connection script -->
+    <py-script src="main.py"></py-script>
+
+</body>
+
+</html>
